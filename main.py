@@ -24,7 +24,7 @@ def load_history(path):
     pass
 
 app = customtkinter.CTk()
-app.title("my app")
+app.title("Open Interpreter")
 app.geometry("600x480")
 app.grid_columnconfigure(1, weight=1)
 app.grid_rowconfigure(0, weight=5)
