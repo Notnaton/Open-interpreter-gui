@@ -1,11 +1,9 @@
+from pathlib import Path
 import customtkinter
 import interpreter
 
 interpreter.model = "openai/local"
 interpreter.api_base = "http://localhost:1234/v1"
-
-from pathlib import Path
-import os
 
 path = Path(interpreter.conversation_history_path)
 history_chats = {}
