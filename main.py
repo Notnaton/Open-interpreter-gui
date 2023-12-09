@@ -58,6 +58,7 @@ for i, (message, is_user) in enumerate(messages):
     bubble = customtkinter.CTkLabel(master=chat_frame,
                                     text=message, 
                                     wraplength=300,
+                                    justify="left",
                                     bg_color="transparent",  # Blue background
                                     corner_radius=10, # Apply rounded corners
                                     fg_color="#144870")
