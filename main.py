@@ -59,7 +59,7 @@ for i, (message, is_user) in enumerate(messages):
     # Create the label with blue background inside the frame
     bubble = customtkinter.CTkLabel(master=chat_frame,
                                     text=message, 
-                                    wraplength=250,
+                                    wraplength=300,
                                     bg_color="transparent",  # Blue background
                                     corner_radius=10, # Apply rounded corners
                                     fg_color="#144870")
