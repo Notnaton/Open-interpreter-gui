@@ -1,2 +1,2 @@
 customtkinter==5.2.1 
-interpreter==0.1.17
+open-interpreter==0.1.17
