@@ -70,9 +70,13 @@ class ChatFrame(customtkinter.CTkScrollableFrame):
         for message in messages:
             is_user = message["role"] == "user" or False
             if "message" in message.keys():
-                render_messages.append((message["message"], is_user))
+                is_code = False
+                render_messages.append((message["message"], is_user, is_code))
+            elif "code" in message.keys():
+                is_code = True
+                render_messages.append((message["message"], is_user, is_code))
 
-        for i, (message, is_user) in enumerate(render_messages):
+        for i, (message, is_user, is_code) in enumerate(render_messages):
             # Create the label with blue background inside the frame
             bubble = customtkinter.CTkLabel(master=self.chat_frame,
                                             text=message, 
@@ -124,6 +128,10 @@ class InterpreterApp(customtkinter.CTk):
         self.chat_frame = ChatFrame(self)
 
         self.check_update_signal()
+        self.run_interpreter()
+
+    def run_interpreter(self):
+        pass
     
     def check_update_signal(self):
         if self.history_frame.update_signal:
