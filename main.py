@@ -65,6 +65,7 @@ class ChatFrame(customtkinter.CTkScrollableFrame):
             widget.destroy()
         self.chat_bubbles.clear()
 
+        #Get content and user from messages dictionary
         render_messages = []
         for message in messages:
             is_user = message["role"] == "user" or False
@@ -89,14 +90,13 @@ class ChatFrame(customtkinter.CTkScrollableFrame):
 
         # Update the UI
         self.update()
+        self.scroll_to_bottom()
 
+    def scroll_to_bottom(self):
         # Update the scroll region
         if hasattr(self.chat_frame, '_parent_canvas'):
             canvas = self.chat_frame._parent_canvas
             canvas.config(scrollregion=canvas.bbox("all"))
-        self.scroll_to_bottom()
-
-    def scroll_to_bottom(self):
         # Try to access the internal canvas and use yview_moveto
         if hasattr(self.chat_frame, '_parent_canvas'):
             self.chat_frame.update_idletasks()  # Update the UI
